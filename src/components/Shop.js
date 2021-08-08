@@ -5,6 +5,8 @@ const Shop = () => {
 	return (
 		<div className="product-container">
 			<ProductCard />
+			<ProductCard />
+			<ProductCard />
 		</div>
 	);
 };
