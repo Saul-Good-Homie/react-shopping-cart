@@ -53,6 +53,13 @@ a {
 	text-decoration: none;
 }
 
+span {
+	background-color: white;
+	color: #4b7783;
+	padding: 2px;
+	border-radius: 50%;
+}
+
 /* Home Page Css */
 
 .hero {
@@ -84,6 +91,7 @@ a {
 	padding: 1%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
+	border-radius: 5px;
 }
 
 .card-left {
@@ -119,4 +127,15 @@ input[type='submit'] {
 	padding: 10px 10px;
 	margin: 10px 10px;
 	cursor: pointer;
+}
+
+/* Shopping cart page */
+
+.cart-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2px;
+	gap: 10px;
 }

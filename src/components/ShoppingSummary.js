@@ -1,14 +1,7 @@
-import { React, useState } from 'react';
+import React from 'react';
 import WaterGlass from '../Assets/water-glass.jpeg';
 
-const ProductCard = ({ product, addToCart }) => {
-	const [quantity, setQuantity] = useState();
-
-	const updateCart = () => {
-		product.quantity = quantity;
-		addToCart(product);
-	};
-
+const ShoppingSummary = ({ product }) => {
 	return (
 		<div className="card">
 			<div className="card-left">
@@ -16,17 +9,12 @@ const ProductCard = ({ product, addToCart }) => {
 			</div>
 			<div className="card-right">
 				<div className="name">{product.name}</div>
-				<div className="description">{product.description}</div>
 				<br></br>
 				<div className="price">{product.price}</div>
 				<br></br>
 				<form>
 					<label>Quantity</label>
-					<select
-						name="quantity"
-						id="quantity"
-						onChange={(e) => setQuantity(parseInt(e.target.value))}
-					>
+					<select name="quantity" id="quantity">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -38,17 +26,11 @@ const ProductCard = ({ product, addToCart }) => {
 						<option value="9">9</option>
 						<option value="10">10</option>
 					</select>
-					<input
-						type="button"
-						onClick={() => {
-							updateCart();
-						}}
-						value="Add to Cart"
-					></input>
+					<input type="button" value="Update to Cart"></input>
 				</form>
 			</div>
 		</div>
 	);
 };
 
-export default ProductCard;
+export default ShoppingSummary;

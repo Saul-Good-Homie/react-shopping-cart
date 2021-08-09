@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({ cartLength }) => {
 	return (
 		<nav>
 			<h4>logo</h4>
@@ -12,8 +12,11 @@ const Nav = () => {
 				<Link to="/shop">
 					<li>Shop</li>
 				</Link>
-				<Link to="/">
-					<li>Check Out</li>
+				<Link to="/cart">
+					<li>
+						{' '}
+						Cart <span>{cartLength}</span>
+					</li>
 				</Link>
 			</ul>
 		</nav>
