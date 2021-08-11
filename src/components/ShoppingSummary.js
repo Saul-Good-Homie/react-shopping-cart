@@ -2,18 +2,30 @@ import React from 'react';
 import WaterGlass from '../Assets/water-glass.jpeg';
 
 const ShoppingSummary = ({ product }) => {
+	const subTotal = product.price * product.quantity;
+
 	return (
-		<div className="card">
-			<div className="card-left">
-				<img src={WaterGlass} alt="glass of water with lemon wedge"></img>
+		<div className="summary-card">
+			<div className="summary-card-left">
+				<img
+					className="cart-img"
+					src={WaterGlass}
+					alt="glass of water with lemon wedge"
+				></img>
 			</div>
-			<div className="card-right">
+			<div className="summary-card-center">
 				<div className="name">{product.name}</div>
-				<br></br>
-				<div className="price">{product.price}</div>
-				<br></br>
-				<form>
-					<label>Quantity</label>
+
+				<div className="price">${product.price}</div>
+			</div>
+			<div className="summary-card-right">
+				<div className="quantity">Quantity: {product.quantity}</div>
+				<div>Subtotal: ${subTotal.toFixed(2)}</div>
+			</div>
+
+			{/* <form>
+					<label>Quantity: </label>
+					
 					<select name="quantity" id="quantity">
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -26,9 +38,8 @@ const ShoppingSummary = ({ product }) => {
 						<option value="9">9</option>
 						<option value="10">10</option>
 					</select>
-					<input type="button" value="Update to Cart"></input>
-				</form>
-			</div>
+					<input type="button" value="Update Cart"></input>
+				</form> */}
 		</div>
 	);
 };

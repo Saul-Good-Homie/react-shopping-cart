@@ -1,12 +1,14 @@
-import React from 'react';
+import { React } from 'react';
 import ShoppingSummary from './ShoppingSummary';
+import Total from './Total';
 
-const ShoppingCart = ({ products }) => {
+const ShoppingCart = ({ cart, total }) => {
 	return (
-		<div className="product-container">
-			{products.map((product) => (
+		<div className="cart-container">
+			{cart.map((product) => (
 				<ShoppingSummary key={product.id} product={product} />
 			))}
+			<Total total={total} />
 		</div>
 	);
 };

@@ -14,7 +14,7 @@ function App() {
 			name: 'name',
 			description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 			eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-			price: '$4.99',
+			price: 4.99,
 			quantity: 0,
 		},
 		{
@@ -22,7 +22,7 @@ function App() {
 			name: 'name',
 			description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 			eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-			price: '$49.99',
+			price: 49.99,
 			quantity: 0,
 		},
 		{
@@ -30,24 +30,30 @@ function App() {
 			name: 'name',
 			description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 			eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-			price: '$99.99',
+			price: 99.99,
 			quantity: 0,
 		},
 	]);
 
-	// const cartLength = () => {
-	// 	let cartQuantity = 0;
-	// 	products.map((product) => cartQuantity + product.quantity);
-	// 	return cartQuantity;
-	// };
-
+	const [cart, setCart] = useState([]);
 	const [cartLength, setCartLength] = useState(0);
+	const [total, setTotal] = useState(0);
 
 	const addToCart = (product) => {
-		console.log('added to cart');
+		if (product.quantity > 0 && !cart.includes(product)) {
+			setCart([...cart, product]);
+			console.log('added to cart');
+		} else {
+			console.log('cart already updated');
+		}
 		let sum = 0;
-		products.map((x) => (sum = sum + x.quantity));
-		setCartLength(sum);
+		let runningTotal = 0;
+		products.map((x) => {
+			sum = sum + x.quantity;
+			setCartLength(sum);
+			runningTotal = runningTotal + x.price * x.quantity;
+			setTotal(runningTotal);
+		});
 	};
 
 	return (
@@ -64,7 +70,7 @@ function App() {
 					<Route
 						path="/cart"
 						exact
-						component={() => <ShoppingCart products={products} />}
+						component={() => <ShoppingCart cart={cart} total={total} />}
 					/>
 				</Switch>
 			</div>

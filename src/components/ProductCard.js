@@ -2,9 +2,10 @@ import { React, useState } from 'react';
 import WaterGlass from '../Assets/water-glass.jpeg';
 
 const ProductCard = ({ product, addToCart }) => {
-	const [quantity, setQuantity] = useState();
+	const [quantity, setQuantity] = useState(0);
 
 	const updateCart = () => {
+		console.log(quantity);
 		product.quantity = quantity;
 		addToCart(product);
 	};
@@ -18,7 +19,7 @@ const ProductCard = ({ product, addToCart }) => {
 				<div className="name">{product.name}</div>
 				<div className="description">{product.description}</div>
 				<br></br>
-				<div className="price">{product.price}</div>
+				<div className="price">${product.price}</div>
 				<br></br>
 				<form>
 					<label>Quantity</label>
