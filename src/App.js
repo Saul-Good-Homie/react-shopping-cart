@@ -71,7 +71,7 @@ function App() {
 			<div className="App">
 				<Nav cartLength={cartLength} />
 				<Switch>
-					<Route path="/" exact component={Home} />
+					<Route path={['/', '/react-shopping-cart']} exact component={Home} />
 					<Route
 						path="/Shop"
 						exact
