@@ -28,6 +28,9 @@ const ProductCard = ({ product, addToCart }) => {
 						id="quantity"
 						onChange={(e) => setQuantity(parseInt(e.target.value))}
 					>
+						<option disabled selected value>
+							--
+						</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -47,6 +50,7 @@ const ProductCard = ({ product, addToCart }) => {
 						value="Add to Cart"
 					></input>
 				</form>
+				<div className="in-cart">Cart: {product.quantity}</div>
 			</div>
 		</div>
 	);

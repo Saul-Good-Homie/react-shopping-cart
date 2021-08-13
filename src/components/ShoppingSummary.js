@@ -1,7 +1,9 @@
 import React from 'react';
 import WaterGlass from '../Assets/water-glass.jpeg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const ShoppingSummary = ({ product }) => {
+const ShoppingSummary = ({ product, removeFromCart }) => {
 	const subTotal = product.price * product.quantity;
 
 	return (
@@ -22,24 +24,13 @@ const ShoppingSummary = ({ product }) => {
 				<div className="quantity">Quantity: {product.quantity}</div>
 				<div>Subtotal: ${subTotal.toFixed(2)}</div>
 			</div>
-
-			{/* <form>
-					<label>Quantity: </label>
-					
-					<select name="quantity" id="quantity">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-					<input type="button" value="Update Cart"></input>
-				</form> */}
+			<FontAwesomeIcon
+				className="icons"
+				icon={faTrash}
+				onClick={() => {
+					removeFromCart(product);
+				}}
+			/>
 		</div>
 	);
 };

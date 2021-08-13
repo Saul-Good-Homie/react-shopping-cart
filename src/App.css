@@ -57,6 +57,15 @@ button:active {
 	box-shadow: inset 1px 1px 1px #dfdfdf;
 }
 
+.icons {
+	color: rgb(196, 23, 23);
+}
+
+.icons:hover {
+	cursor: pointer;
+	box-shadow: inset 1px 1px 1px #dfdfdf;
+}
+
 Nav {
 	display: flex;
 	justify-content: space-between;
@@ -73,6 +82,10 @@ Nav {
 	align-items: center;
 	width: 40%;
 	list-style: none;
+}
+
+.nav-links:hover {
+	cursor: pointer;
 }
 
 a {

@@ -43,6 +43,9 @@ function App() {
 		if (product.quantity > 0 && !cart.includes(product)) {
 			setCart([...cart, product]);
 			console.log('added to cart');
+		} else if (product.quantity === 0) {
+			const refreshedCart = cart.filter((x) => x.quantity !== 0);
+			setCart(refreshedCart);
 		} else {
 			console.log('cart already updated');
 		}
@@ -54,6 +57,13 @@ function App() {
 			runningTotal = runningTotal + x.price * x.quantity;
 			setTotal(runningTotal);
 		});
+	};
+
+	const removeFromCart = (product) => {
+		console.log(product);
+		console.log(product.quantity);
+		product.quantity = 0;
+		addToCart(product);
 	};
 
 	return (
@@ -70,7 +80,13 @@ function App() {
 					<Route
 						path="/cart"
 						exact
-						component={() => <ShoppingCart cart={cart} total={total} />}
+						component={() => (
+							<ShoppingCart
+								cart={cart}
+								removeFromCart={removeFromCart}
+								total={total}
+							/>
+						)}
 					/>
 				</Switch>
 			</div>
